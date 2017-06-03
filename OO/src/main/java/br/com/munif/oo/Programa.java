@@ -6,7 +6,17 @@ import java.util.logging.Logger;
 public class Programa {
     
     
-    public static void main(String []args){
+    public static void main(String ... args){
+        Lugar casa=new Lugar("casa");
+        Personagem p1=new Jogador("Maria",casa);
+        Personagem p2=new NPC(casa);
+        
+        
+    }
+    
+    
+    
+    public static void mainVelho(String []args){
         try {
             System.out.println("Ola Mundo!!!");
             
