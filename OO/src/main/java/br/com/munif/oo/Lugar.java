@@ -1,5 +1,8 @@
 package br.com.munif.oo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Lugar {
 
     private String descricao;
@@ -9,8 +12,18 @@ public class Lugar {
     private Lugar leste;
     private Lugar oeste;
 
+    private List<Personagem> personagens;
+
+    private List<String> mensagens;
+
     public Lugar(String descricao) {
+        mensagens = new ArrayList<>();
+        personagens = new ArrayList<>();
         this.descricao = descricao;
+    }
+
+    public List<Personagem> getPersonagens() {
+        return personagens;
     }
 
     public String getDescricao() {
@@ -47,6 +60,10 @@ public class Lugar {
 
     public void setOeste(Lugar oeste) {
         this.oeste = oeste;
+    }
+
+    public List<String> getMensagens() {
+        return mensagens;
     }
 
 }

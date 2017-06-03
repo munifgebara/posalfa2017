@@ -1,6 +1,7 @@
 package br.com.munif.oo;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Programa {
     
@@ -11,11 +12,17 @@ public class Programa {
         Personagem jogador=new Jogador("Maria",mapa.getLugarInicialJogador());
         Personagem npc=new NPC(mapa.getLugarInicialNPC());
         
+        
+        System.out.println("---->"+Descritivel.NOME_JOGO);
+        
         while (true){
             Lugar lc=jogador.getLugar();
             System.out.println(jogador.getNome()+"!");
             System.out.println("Voce está no(a):"+
-                    lc.getDescricao());
+                    lc.getDescricao()+" com "+lc.getPersonagens());
+            
+            System.out.println ("Mensagens:"+lc.getMensagens());
+            
             
             if (lc.getLeste()!=null){
                 System.out.println("1) Para leste "+lc.getLeste().getDescricao());
@@ -30,6 +37,8 @@ public class Programa {
                 System.out.println("4) Para Sul "+lc.getSul().getDescricao());
             }
             
+            System.out.println("5) Escrever");
+            
             int opcao=scanner.nextInt();
             
             if (opcao==1 && lc.getLeste()!=null){
@@ -43,6 +52,11 @@ public class Programa {
             }
             else if (opcao==4 && lc.getSul()!=null){
                 jogador.setLugar(lc.getSul());
+            }
+            else if (opcao==5 ){
+                System.out.println("Digite a mensagem:");
+                String mensagem = scanner.next();
+                lc.getMensagens().add(mensagem);
             }
             else{
                 System.out.println("Opcao inválida");
@@ -59,6 +73,7 @@ public class Programa {
             System.out.println("Ola Mundo!!!");
             
             Liquidificador liq1=new Liquidificador ();
+            mostraDescricao(liq1);
             
             liq1.setVelocidade(2);
             System.out.println(liq1.getVelocidade());
@@ -75,6 +90,10 @@ public class Programa {
         
         
         
+    }
+    
+    public static void mostraDescricao(Descritivel des){
+        JOptionPane.showConfirmDialog(null, des.descreve());
     }
     
 }

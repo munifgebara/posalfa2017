@@ -1,6 +1,6 @@
 package br.com.munif.oo;
 
-public class Liquidificador {
+public class Liquidificador implements Descritivel{
 
     private int velocidade;
 
@@ -41,6 +41,12 @@ public class Liquidificador {
 
         return retornos[velocidade];
 
+    }
+
+    @Override
+    public String descreve() {
+        return "Liquidicador com velocidade "+velocidade;
+        
     }
 
 }
